@@ -1,43 +1,82 @@
+// js/admin.js
 import { auth, db } from "./firebase.js";
 import {
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 import {
-  doc, setDoc
+  doc,
+  setDoc,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+/* ---------- AUTH ---------- */
 const loginBox = document.getElementById("loginBox");
 const adminPanel = document.getElementById("adminPanel");
 
-document.getElementById("loginBtn").onclick = async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (!email || !password) {
+    alert("Email / Password required");
+    return;
+  }
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    loginBox.classList.add("hidden");
-    adminPanel.classList.remove("hidden");
-  } catch {
+  } catch (err) {
     alert("Login failed");
   }
-};
+});
 
-document.getElementById("saveBtn").onclick = async () => {
-  const matchId = document.getElementById("matchId").value;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    loginBox.classList.add("hidden");
+    adminPanel.classList.remove("hidden");
+  } else {
+    loginBox.classList.remove("hidden");
+    adminPanel.classList.add("hidden");
+  }
+});
 
-  const data = {
-    battingTeam: battingTeam.value,
-    runs: Number(runs.value),
-    wickets: Number(wickets.value),
-    overs: overs.value,
-    striker: striker.value,
-    nonStriker: nonStriker.value,
-    bowler: bowler.value,
+/* ---------- SAVE LIVE SCORE ---------- */
+document.getElementById("saveBtn").addEventListener("click", async () => {
+  const matchId = document.getElementById("matchId").value.trim();
+
+  if (!matchId) {
+    alert("Match ID required");
+    return;
+  }
+
+  const payload = {
+    matchId,
+    battingTeam: battingTeam.value.trim(),
+    runs: Number(runs.value) || 0,
+    wickets: Number(wickets.value) || 0,
+    overs: overs.value.trim(),
+    striker: striker.value.trim(),
+    nonStriker: nonStriker.value.trim(),
+    bowler: bowler.value.trim(),
     status: "LIVE",
-    updatedAt: Date.now()
+    updatedAt: serverTimestamp()
   };
 
-  await setDoc(doc(db, "liveMatches", matchId), data);
-  document.getElementById("status").innerText = "Live score updated";
-};
+  try {
+    await setDoc(doc(db, "liveMatches", matchId), payload, { merge: true });
+    document.getElementById("status").innerText =
+      "Live score updated successfully";
+  } catch (e) {
+    alert("Error saving score");
+  }
+});
+
+/* ---------- LOGOUT ---------- */
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    await signOut(auth);
+  });
+}
