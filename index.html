@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard • MPGB Cricket Manager</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="icon" href="assets/icons/icon-192.png"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <meta name="theme-color" content="#0b1020"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="navbar container">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="brandTitle">MPGB Cricket Manager</h1>
+          <div class="sub">Schedule • Live scoring • Scorecard • Points</div>
+        </div>
+      </a>
+      <div class="navlinks no-print">
+        <a class="pill active" href="index.html">Dashboard</a>
+        <a class="pill" href="teams.html">Teams</a>
+        <a class="pill" href="points.html">Points</a>
+        <a class="pill" href="admin.html">Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="grid two">
+      <section class="card">
+        <h2>Quick Actions</h2>
+        <div class="kpi">
+          <div class="box"><div class="val" id="kpiTeams">0</div><div class="lbl">Teams</div></div>
+          <div class="box"><div class="val" id="kpiMatches">0</div><div class="lbl">Matches</div></div>
+          <div class="box"><div class="val" id="kpiLive">0</div><div class="lbl">Live</div></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h3>Create Match</h3>
+        <div class="row">
+          <div>
+            <label>Group</label>
+            <input id="mGroup" placeholder="A / B / C" value="A"/>
+          </div>
+          <div>
+            <label>Date</label>
+            <input id="mDate" type="date"/>
+          </div>
+          <div>
+            <label>Venue</label>
+            <input id="mVenue" placeholder="Ground / City"/>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label>Team A</label>
+            <select id="mTeamA"></select>
+          </div>
+          <div>
+            <label>Team B</label>
+            <select id="mTeamB"></select>
+          </div>
+        </div>
+        <div class="btnbar">
+          <button class="primary" id="btnCreateMatch">Create Match</button>
+          <span class="muted small" id="createHint">Tip: Teams add first from Teams page.</span>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Matches</h2>
+        <div class="muted small">Open a match to do Toss, Two Innings scoring, Scorecard + PDF.</div>
+        <div class="hr"></div>
+        <div id="matchList"></div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="container footer">
+    <div>Static GitHub Pages build • Offline-ready (PWA) • Admin PIN protected actions</div>
+  </div>
+
+  <script type="module" src="assets/site.js"></script>
+  <script type="module" src="assets/index.js"></script>
+</body>
+</html>

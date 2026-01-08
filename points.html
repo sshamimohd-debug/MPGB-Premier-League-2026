@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Points • MPGB Cricket Manager</title>
+  <link rel="icon" href="assets/icons/icon-192.png"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <meta name="theme-color" content="#0b1020"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="navbar container">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="brandTitle">Points Table</h1>
+          <div class="sub">Auto calculated from completed matches</div>
+        </div>
+      </a>
+      <div class="navlinks no-print">
+        <a class="pill" href="index.html">Dashboard</a>
+        <a class="pill" href="teams.html">Teams</a>
+        <a class="pill active" href="points.html">Points</a>
+        <a class="pill" href="admin.html">Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="card">
+      <h2>Group-wise Points</h2>
+      <div class="muted small">NRR is approximate: (Runs/Over For) - (Runs/Over Against). All out counts by balls faced.</div>
+      <div class="hr"></div>
+      <div id="pointsWrap"></div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/site.js"></script>
+  <script type="module" src="assets/points.js"></script>
+</body>
+</html>

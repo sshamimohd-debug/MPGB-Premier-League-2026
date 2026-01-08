@@ -1,0 +1,87 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Match • MPGB Cricket Manager</title>
+  <link rel="icon" href="assets/icons/icon-192.png"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <link rel="stylesheet" href="assets/print.css"/>
+  <meta name="theme-color" content="#0b1020"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="navbar container">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="matchTitle">Match</h1>
+          <div class="sub" id="matchSub">—</div>
+        </div>
+      </a>
+      <div class="navlinks no-print">
+        <a class="pill" href="index.html">Dashboard</a>
+        <a class="pill" href="teams.html">Teams</a>
+        <a class="pill" href="points.html">Points</a>
+        <a class="pill" href="admin.html">Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="grid two">
+      <section class="card">
+        <div class="row" style="align-items:center;justify-content:space-between">
+          <div>
+            <h2 style="margin:0" id="hTeams">—</h2>
+            <div class="muted small" id="hMeta">—</div>
+          </div>
+          <div class="no-print" style="text-align:right">
+            <div class="badge" id="hStatus">—</div>
+            <div style="height:8px"></div>
+            <button class="blue" id="btnPrint">Scorecard PDF</button>
+          </div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="row no-print">
+          <div>
+            <div class="badge" id="adminBadge">View only</div>
+          </div>
+          <div style="text-align:right">
+            <button class="primary" id="btnUnlock">Unlock Admin</button>
+            <button class="danger" id="btnLock">Lock</button>
+          </div>
+        </div>
+
+        <div class="hr no-print"></div>
+
+        <div id="tossWrap" class="no-print"></div>
+        <div id="liveWrap" class="no-print"></div>
+      </section>
+
+      <aside class="card">
+        <h2>Live Summary</h2>
+        <div id="liveSummary"></div>
+
+        <div class="hr"></div>
+
+        <h2>Ball by Ball</h2>
+        <div id="bbb"></div>
+      </aside>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <section class="card">
+      <h2>Scorecard</h2>
+      <div id="scorecard"></div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/site.js"></script>
+  <script type="module" src="assets/match.js"></script>
+</body>
+</html>

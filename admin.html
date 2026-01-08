@@ -1,0 +1,105 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin • MPGB Cricket Manager</title>
+  <link rel="icon" href="assets/icons/icon-192.png"/>
+  <link rel="stylesheet" href="assets/style.css"/>
+  <meta name="theme-color" content="#0b1020"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="navbar container">
+      <a class="brand" href="index.html">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="brandTitle">Admin</h1>
+          <div class="sub">PIN • Settings • Export/Import</div>
+        </div>
+      </a>
+      <div class="navlinks no-print">
+        <a class="pill" href="index.html">Dashboard</a>
+        <a class="pill" href="teams.html">Teams</a>
+        <a class="pill" href="points.html">Points</a>
+        <a class="pill active" href="admin.html">Admin</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="grid two">
+      <section class="card">
+        <h2>Settings</h2>
+        <div class="row">
+          <div>
+            <label>Tournament Name</label>
+            <input id="sName" placeholder="MPGB Premier League 2026"/>
+          </div>
+          <div>
+            <label>Overs per innings (default)</label>
+            <input id="sOvers" type="number" min="1" max="50"/>
+          </div>
+        </div>
+        <div class="btnbar">
+          <button class="primary" id="btnSaveSettings">Save</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>Admin PIN</h2>
+        <div class="muted small">Admin PIN is required for Toss, Live scoring, Undo, Finish match. View-only is always allowed.</div>
+        <div class="row">
+          <div>
+            <label>New PIN</label>
+            <input id="pin1" type="password" placeholder="4-10 digits"/>
+          </div>
+          <div>
+            <label>Confirm PIN</label>
+            <input id="pin2" type="password" placeholder="Repeat"/>
+          </div>
+        </div>
+        <div class="btnbar">
+          <button class="blue" id="btnSetPin">Set/Change PIN</button>
+          <button class="danger" id="btnClearPin">Remove PIN</button>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Backup & Transfer</h2>
+        <div class="muted small">Use this to shift data between laptops or keep backup before tournament day.</div>
+        <div class="hr"></div>
+
+        <div class="btnbar">
+          <button class="primary" id="btnExport">Export JSON</button>
+          <label class="pill" style="cursor:pointer">
+            Import JSON <input id="fileImport" type="file" accept=".json" style="display:none"/>
+          </label>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>Reset</h2>
+        <div class="muted small">This will delete all saved data in this browser.</div>
+        <div class="btnbar">
+          <button class="danger" id="btnReset">Reset All Data</button>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>GitHub Pages Deploy (Quick)</h2>
+        <ol class="small muted">
+          <li>Upload all files of this zip to your GitHub repo root (or /docs).</li>
+          <li>Repo → Settings → Pages → Source: <span class="mono">Deploy from a branch</span>.</li>
+          <li>Select Branch: <span class="mono">main</span>, Folder: <span class="mono">/ (root)</span> (or <span class="mono">/docs</span>).</li>
+          <li>Open the Pages URL. Done.</li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+
+  <script type="module" src="assets/site.js"></script>
+  <script type="module" src="assets/admin.js"></script>
+</body>
+</html>
