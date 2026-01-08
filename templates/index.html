@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MPGB League</title>
+    <title>MPGB App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: sans-serif; background: #eee; padding: 10px; }
-        .header { background: #004d40; color: white; padding: 15px; text-align: center; border-radius: 8px; }
-        .card { background: white; padding: 15px; margin-top: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .venue { background: #b2dfdb; padding: 3px 8px; font-size: 12px; border-radius: 4px; float: right; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="header">
-        <h2>MPGB CricManager</h2>
-        <p>10-11 Jan 2026</p>
+        <h2>MPGB Cricket Manager</h2>
+        <p>📅 {{ info.dates }}</p>
     </div>
 
-    {% for grp, data in groups.items() %}
-    <div class="card">
-        <h3>GROUP {{ grp }} <span class="venue">{{ data.venue }}</span></h3>
-        <p>Teams: {{ data.teams|join(', ') }}</p>
-        <button style="width:100%; padding:10px; background:#004d40; color:white; border:none; margin-top:5px;">View Scores</button>
+    <div class="card" style="display:flex; gap:10px;">
+        <a href="/match" style="flex:1;"><button>🏏 Live Match</button></a>
+        <a href="/register" style="flex:1;"><button>📝 Register</button></a>
+        <a href="/finance" style="flex:1;"><button>💰 Budget</button></a>
     </div>
-    {% endfor %}
+
+    <div class="card">
+        <h3>🕒 Revised Schedule (24-25 Jan)</h3>
+        <ul style="font-size:12px; padding-left:15px;">
+            {% for slot in schedule %}
+            <li><strong>{{ slot.time }}</strong>: {{ slot.match }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>
