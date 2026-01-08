@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Live Match — MPGB Premier League</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css"/>
+  
+</head>
+<body>
+  <div id="nav"></div>
+  <div class="container">
+    
+<div class="hero">
+  <div class="h1">Live Match</div>
+  <p class="p">Open an official fixture, lock toss, and score ball-by-ball (Admin PIN required for scoring actions).</p>
+</div>
+<div id="selectWrap"></div>
+<div style="height:12px"></div>
+<div id="liveWrap"></div>
+<div class="footer">Tip: Use Teams & Players to register squad and set Playing XI. Otherwise placeholders will be used.</div>
+
+  </div>
+  <script src="js/app.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/match.js"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}</script>
+</body>
+</html>
