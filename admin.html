@@ -1,56 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Admin — MPGB Premier League</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <title>Admin Panel – MPGB Premier League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module" src="js/admin.js"></script>
+  <style>
+    body { font-family: Arial; padding: 15px; }
+    .hidden { display:none; }
+    input, select, button { padding:8px; margin:5px 0; width:100%; }
+    .box { max-width:420px; margin:auto; }
+  </style>
 </head>
 <body>
-  <div id="nav"></div>
-  <div class="container">
-    
-<div class="hero">
-  <div class="h1">Admin</div>
-  <p class="p">Set an Admin PIN on this device. Scoring actions will require PIN.</p>
+
+_attachLOGIN_
+
+<div id="loginBox" class="box">
+  <h2>Admin Login</h2>
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button id="loginBtn">Login</button>
 </div>
 
-<div class="grid cols2">
-  <div class="card">
-    <h3>Set / Change Admin PIN</h3>
-    <div id="status" class="pill warn">Loading…</div>
-    <hr class="sep"/>
-    <form id="pinForm">
-      <label>New PIN</label>
-      <input class="input" id="pin" type="password" placeholder="Minimum 4 digits"/>
-      <div style="height:10px"></div>
-      <label>Confirm PIN</label>
-      <input class="input" id="pin2" type="password" placeholder="Re-enter PIN"/>
-      <div style="height:12px"></div>
-      <button class="btn primary" type="submit">Save PIN</button>
-    </form>
-  </div>
+<div id="adminPanel" class="box hidden">
+  <h2>Live Scoring</h2>
 
-  <div class="card">
-    <h3>Backup / Restore</h3>
-    <div class="small">Export JSON backup (matches + teams + players) and import on another laptop.</div>
-    <hr class="sep"/>
-    <div class="row">
-      <button class="btn" id="exportAll">Export Backup JSON</button>
-      <label class="btn" style="cursor:pointer">
-        Import JSON <input id="importFile" type="file" accept="application/json" style="display:none"/>
-      </label>
-      <button class="btn danger" id="resetAll">Reset (Clear Local Data)</button>
-    </div>
-  </div>
+  <input id="matchId" placeholder="Match ID (eg: match_1)">
+  <input id="battingTeam" placeholder="Batting Team">
+  <input id="runs" type="number" placeholder="Runs">
+  <input id="wickets" type="number" placeholder="Wickets">
+  <input id="overs" placeholder="Overs (eg 12.3)">
+  <input id="striker" placeholder="Striker">
+  <input id="nonStriker" placeholder="Non-Striker">
+  <input id="bowler" placeholder="Bowler">
+
+  <button id="saveBtn">Save / Update Live Score</button>
+  <p id="status"></p>
 </div>
 
-    <div class="footer">Offline-ready (PWA). Data is stored locally in your browser.</div>
-  </div>
-  <script src="js/app.js"></script>
-  <script src="js/nav.js"></script>
-  <script src="js/admin.js"></script>
-  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}</script>
 </body>
 </html>
