@@ -1,100 +1,27 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Teams • MPGB Cricket Manager</title>
-  <link rel="icon" href="assets/icons/icon-192.png"/>
-  <link rel="stylesheet" href="assets/style.css"/>
-  <meta name="theme-color" content="#0b1020"/>
+  <title>Teams & Players — MPGB Premier League</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <div class="nav">
-    <div class="navbar container">
-      <a class="brand" href="index.html">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1 id="brandTitle">Teams</h1>
-          <div class="sub">Add teams & players</div>
-        </div>
-      </a>
-      <div class="navlinks no-print">
-        <a class="pill" href="index.html">Dashboard</a>
-        <a class="pill active" href="teams.html">Teams</a>
-        <a class="pill" href="points.html">Points</a>
-        <a class="pill" href="admin.html">Admin</a>
-      </div>
-    </div>
+  <div id="nav"></div>
+  <div class="container">
+    
+<div class="hero">
+  <div class="h1">Teams & Players</div>
+  <p class="p">Teams/groups are locked as per official documents. Add players using Annexure-1 fields and select Playing XI.</p>
+</div>
+<div id="wrap"></div>
+
+    <div class="footer">Offline-ready (PWA). Data is stored locally in your browser.</div>
   </div>
-
-  <main class="container">
-    <div class="grid two">
-      <section class="card">
-        <h2>Add Team</h2>
-        <div class="row">
-          <div>
-            <label>Team Name</label>
-            <input id="tName" placeholder="e.g., Sagar Lions"/>
-          </div>
-          <div>
-            <label>Short (3-5)</label>
-            <input id="tShort" placeholder="SAG"/>
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label>Branch</label>
-            <input id="tBranch" placeholder="e.g., Katra Bazar Sagar"/>
-          </div>
-          <div>
-            <label>Region (RO)</label>
-            <input id="tRegion" placeholder="e.g., Sagar / Damoh"/>
-          </div>
-        </div>
-        <div class="btnbar">
-          <button class="primary" id="btnAddTeam">Add Team</button>
-        </div>
-
-        <div class="hr"></div>
-
-        <h2>Add Player</h2>
-        <div class="row">
-          <div>
-            <label>Team</label>
-            <select id="pTeam"></select>
-          </div>
-          <div>
-            <label>Player Name</label>
-            <input id="pName" placeholder="e.g., Mohammad Shamim"/>
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label>Role (optional)</label>
-            <input id="pRole" placeholder="Batsman / Bowler / WK / AR"/>
-          </div>
-          <div></div>
-        </div>
-        <div class="btnbar">
-          <button class="blue" id="btnAddPlayer">Add Player</button>
-        </div>
-      </section>
-
-      <aside class="card">
-        <h2>Teams & Players</h2>
-        <div class="muted small">Players are used in live scoring dropdowns.</div>
-        <div class="hr"></div>
-        <div id="teamList"></div>
-      </aside>
-    </div>
-  </main>
-
-  <div class="container footer">
-    <div>Tip: Admin page has Export/Import to share data between laptops.</div>
-  </div>
-
-  <script type="module" src="assets/site.js"></script>
-  <script type="module" src="assets/teams.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/teams.js"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}</script>
 </body>
 </html>
