@@ -1,54 +1,28 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>MPGB Premier League 2025-26</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MPGB Premier League 2026</title>
+<link rel="manifest" href="manifest.json"/>
+<link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-  <div id="nav"></div>
-  <div class="container">
-    
-<div class="hero">
-  <div class="h1">MPGB Premier League 2025-26 — Cricket Tournament</div>
-  <p class="p">This web app follows the official IOM and the revised schedule. Use it for schedule viewing, team/player listing, live scoring, points table, knockouts, and scorecard PDF.</p>
-</div>
-
-<div class="grid cols2">
-  <div class="card">
-    <h3>Quick Start</h3>
-    <div class="row">
-      <a class="btn primary" href="schedule.html">Open Schedule</a>
-      <a class="btn" href="match.html">Live Match</a>
-      <a class="btn" href="teams.html">Teams & Players</a>
-    </div>
-    <hr class="sep"/>
-    <div class="kv">
-      <div class="k">Format</div><div>10 overs per side • Powerplay: first 3 overs</div>
-      <div class="k">Bowling limit</div><div>Max 2 overs per bowler</div>
-      <div class="k">LBW</div><div>Not applicable</div>
-      <div class="k">Tie</div><div>Super Over</div>
-      <div class="k">Qualification</div><div>Only Group Winner (playoff if top-two tied on points)</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Admin Controls</h3>
-    <p class="p">Set an Admin PIN on your device to lock scoring actions (toss, scoring, undo, end innings, delete match, etc.).</p>
-    <div class="row" style="margin-top:10px">
-      <a class="btn primary" href="admin.html">Go to Admin</a>
-      <a class="btn" href="documents.html">Official PDFs</a>
-    </div>
-  </div>
-</div>
-
-    <div class="footer">Offline-ready (PWA). Data is stored locally in your browser.</div>
-  </div>
-  <script src="js/app.js"></script>
-  <script src="js/nav.js"></script>
-  <script src="js/index.js"></script>
-  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}</script>
+<header>
+  <h1>MPGB Premier League 2026</h1>
+</header>
+<nav>
+  <a href="live.html">Live Match</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="points.html">Points</a>
+  <a href="rules.html">Rules</a>
+  <a href="admin.html">Admin</a>
+</nav>
+<main>
+  <p>Official MPGB Premier League Web App</p>
+  <p>Installable | Offline-ready | Live Scoring</p>
+</main>
+<script src="js/core.js"></script>
 </body>
 </html>

@@ -1,1 +1,0 @@
-(function(){renderNav("documents.html");})();

@@ -1,43 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Panel – MPGB Premier League</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="module" src="js/admin.js"></script>
-  <style>
-    body { font-family: Arial; padding: 15px; }
-    .hidden { display:none; }
-    input, select, button { padding:8px; margin:5px 0; width:100%; }
-    .box { max-width:420px; margin:auto; }
-  </style>
+<meta charset="utf-8"/>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-
-_attachLOGIN_
-
-<div id="loginBox" class="box">
-  <h2>Admin Login</h2>
-  <input id="email" type="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
-  <button id="loginBtn">Login</button>
-</div>
-
-<div id="adminPanel" class="box hidden">
-  <h2>Live Scoring</h2>
-
-  <input id="matchId" placeholder="Match ID (eg: match_1)">
-  <input id="battingTeam" placeholder="Batting Team">
-  <input id="runs" type="number" placeholder="Runs">
-  <input id="wickets" type="number" placeholder="Wickets">
-  <input id="overs" placeholder="Overs (eg 12.3)">
-  <input id="striker" placeholder="Striker">
-  <input id="nonStriker" placeholder="Non-Striker">
-  <input id="bowler" placeholder="Bowler">
-
-  <button id="saveBtn">Save / Update Live Score</button>
-  <p id="status"></p>
-</div>
-
+<h2>Admin / Scorer Panel</h2>
+<p>Create match, toss, teams – simplified demo</p>
 </body>
 </html>
